@@ -20,4 +20,13 @@ fs.writeFileSync(process.argv[1], JSON.stringify(cfg, null, 2));
   echo "[railway] wrote $CFG: admin user '${PIGALLERY2_ADMIN_USER:-admin}' with the password from PIGALLERY2_ADMIN_PASSWORD (first boot)"
 fi
 cd /app
-exec node --expose-gc ./src/backend/index --config-path="$CFG"
+# Railway does not pass the image's hyphenated "default-*" variables to the process, so set them here.
+exec env \
+  "default-Database-dbFolder=/app/data/db" \
+  "default-Media-folder=/app/data/images" \
+  "default-Media-tempFolder=/app/data/tmp" \
+  "default-Extensions-folder=/app/data/config/extensions" \
+  "default-Server-port=8080" \
+  "default-Server-trustProxy=true" \
+  PI_DOCKER=true NODE_ENV=production \
+  node --expose-gc ./src/backend/index --config-path="$CFG"
