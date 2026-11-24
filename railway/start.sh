@@ -12,6 +12,9 @@ if [ ! -f "$CFG" ]; then
 const fs = require("fs");
 const cfg = {
   Server: { port: 8080, trustProxy: "true" },
+  Database: { dbFolder: "/app/data/db" },
+  Media: { folder: "/app/data/images", tempFolder: "/app/data/tmp" },
+  Extensions: { folder: "/app/data/config/extensions" },
   Users: { authenticationRequired: true, enforcedUsers: [ { name: process.env.PIGALLERY2_ADMIN_USER || "admin", role: "Admin", password: process.env.PIGALLERY2_ADMIN_PASSWORD } ] },
   Upload: { enabled: true }
 };
