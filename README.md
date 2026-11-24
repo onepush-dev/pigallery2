@@ -2,7 +2,7 @@
 
 [PiGallery2](https://github.com/bpatrik/pigallery2) (MIT): a fast, directory-first self-hosted photo and video gallery with search, map, faces, albums, sharing links, OIDC and uploads. Deploy it on Railway with one click.
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/TEMPLATE_CODE)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/2S1P7l)
 
 ## What this template runs
 - **pigallery2**: `ghcr.io/onepush-dev/pigallery2:3.8.0`, the official `bpatrik/pigallery2:3.8.0` image (application unmodified). One volume at `/app/data` holds the config (`/app/data/config`), the SQLite database (`/app/data/db`), your photos (`/app/data/images`) and generated thumbnails (`/app/data/tmp`). Listens on port 8080; health check `/heartbeat`.
